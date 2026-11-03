@@ -11,6 +11,7 @@ Total output lines: 3440
 > [FM-1 Mirror](https://github.com/pfkellogg/fm1-mirror), over USB. See **[BIG_SCREEN.md](BIG_SCREEN.md)**; the
 > `.fwsc` is in this fork's Releases. Not a JIANT release: for JIANT itself, see
 > [juanjiant-bit/JIANT](https://github.com/juanjiant-bit/JIANT).
+> **Watch it:** [JIANT FM on a Big Screen](https://youtu.be/7o5s0EDJX5c) (4:57).
 
 # JIANT FM
 
