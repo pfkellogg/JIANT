@@ -7,6 +7,11 @@ Total output lines: 1414
 Warning: truncated output (original token count: 79905)
 Total output lines: 3440
 
+> **This fork: JIANT FM + FM-1 Big Screen (unofficial).** JIANT Beta V10.49 with the FM-1's screen shown big by
+> [FM-1 Mirror](https://github.com/pfkellogg/fm1-mirror), over USB. See **[BIG_SCREEN.md](BIG_SCREEN.md)**; the
+> `.fwsc` is in this fork's Releases. Not a JIANT release: for JIANT itself, see
+> [juanjiant-bit/JIANT](https://github.com/juanjiant-bit/JIANT).
+
 # JIANT FM
 
 **Bio-synthetic operating system for the M-VAVE FM-1** — synthesis, sequencing, mutation, performance.
