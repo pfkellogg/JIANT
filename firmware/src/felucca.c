@@ -13,6 +13,15 @@
 #ifndef FELUCCA_OTA
 #define FELUCCA_OTA 1            /* M-UPGRADE update entry and the editor SysEx; needs FELUCCA_FLASH */
 #endif
+#ifndef JIANT_BIG_SCREEN
+#define JIANT_BIG_SCREEN 1       /* the FM-1 Big Screen mirror: the screen over USB SysEx to FM-1 Mirror (jiant_mirror.c) */
+#endif
+#if JIANT_BIG_SCREEN && !FELUCCA_OTA
+#error "JIANT_BIG_SCREEN needs FELUCCA_OTA (usb.c's SysEx ring)"
+#endif
+#if JIANT_BIG_SCREEN
+#define SXQ 512u                 /* usb.c's SysEx ring: 64 keeps the screen to ~25 KB/s; 512 ~67 KB/s */
+#endif
 #ifndef FELUCCA_OTA_DRYRUN
 #define FELUCCA_OTA_DRYRUN 0     /* 1 = stage, ask "success", then undo: no record, no reset */
 #endif
@@ -113,6 +122,9 @@
 #endif
 #if FELUCCA_CDC
 #include "console.c"
+#endif
+#if JIANT_BIG_SCREEN
+#include "jiant_mirror.c"        /* the FM-1 Big Screen mirror (MIT; after usb.c, gfx.c and ui.c, before main.c) */
 #endif
 #include "master.c"              /* the MASTER pot (#137: read before the audio starts) */
 #include "main.c"
