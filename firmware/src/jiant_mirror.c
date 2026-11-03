@@ -5,7 +5,8 @@
  * rectangle sent to the LCD (lcd.c lcd_blit / lcd_blit_stride / lcd_fill) also goes out over USB MIDI SysEx, so
  * FM-1 Mirror (github.com/pfkellogg/fm1-mirror) and FM-1 Mirror + Spyglass show the screen big. screen_mirror.c
  * makes the messages; this is the glue: the hello from usb.c sysex_byte, sending through usb.c's SysEx ring without
- * ever waiting on it, and the main loop's poll. With nobody asking it does nothing. USB only (no Bluetooth in JIANT).
+ * ever waiting on it, and the main loop's poll; and the sound playing ("T1 FM6 ICE BELL") as its own message, also to
+ * apps that ask for only that (F0 7D 'F' 'S' 02 F7). With nobody asking it does nothing. USB only (no Bluetooth in JIANT).
  */
 #define SM_BUFFER 6144u                          /* 6 KB of queued messages (Big Screen: 16 KB) */
 #include "screen_mirror.c"
@@ -49,10 +50,36 @@ static void mirror_lcd(uint32_t x, uint32_t y, uint32_t w, uint32_t h, const uin
     }
 }
 
-/* main loop: send what's queued; a new viewer (or rows dropped) gets the whole screen redrawn */
+/* the sound playing now, as the header's middle shows it: "T1 FM6 ICE BELL" (the selected track, its engine, its
+ * sound: a user patch's name or the engine's preset) */
+static void mirror_sound(char *b)
+{
+    const track_t *t = &trk[song.sel % NTRK];
+    unsigned n;
+    b[0] = 'T';
+    b[1] = (char)('1' + song.sel % NTRK);
+    b[2] = ' ';
+    b[3] = 0;
+    str_cpy(b + 3, trk_engp(t)->name, 12);
+    n = str_len(b);
+    b[n] = ' ';
+    sound_name(t, b + n + 1u);
+    if (!b[n + 1u])
+        b[n] = 0;
+}
+
+/* main loop: send what's queued; a new viewer (or rows dropped) gets the whole screen redrawn; the sound's name to
+ * anyone asking (every 100 ms it's looked at: sm_name sends it only after a hello or a change) */
 static void mirror_service(void)
 {
+    static uint32_t named_at;
     sm_poll(fm1_ms, mirror_send);
+    if (fm1_ms - named_at >= 100u) {
+        char b[48];
+        named_at = fm1_ms;
+        mirror_sound(b);
+        sm_name(b, fm1_ms, mirror_send);
+    }
     if (sm_take_full_request() || (mirror_lost && sm_on() && fm1_ms - mirror_full_at >= 500u)) {
         mirror_lost = 0;
         mirror_full_at = fm1_ms;

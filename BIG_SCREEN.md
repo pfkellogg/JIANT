@@ -43,6 +43,10 @@ installs it over this one as an ordinary JIANT update (your projects stay). That
 Open **FM-1 Mirror** (Mac, Windows, Linux) or **FM-1 Mirror + Spyglass** (Android) with the FM-1 plugged in by USB:
 the screen appears, big, in colour or high-contrast looks.
 
+**The sound playing, on top of the spyglass.** The FM-1 also tells the app what's playing: the selected track, its
+engine and its sound, as JIANT's header shows it (`T1 FM6 ICE BELL`). FM-1 Mirror shows it in gold on top of its
+spyglass and follows the PRESETS knob and track changes. (It's sent only while an app asks, like the screen.)
+
 **USB only.** JIANT doesn't use the FM-1's Bluetooth MIDI, so **FM-1 Mirror Bluetooth** can't show it. Bluetooth
 needs firmware with Bluetooth MIDI: the FM-1 Big Screen firmware (M-VAVE's Open firmware + the screen) has it.
 
@@ -65,14 +69,15 @@ row stride; and JIANT only redraws the cells that changed, so a new viewer's who
 
 Two new files, both MIT:
 
-- `firmware/src/jiant_mirror.c` (62 lines): the adapter. Each row goes back into RGB565 for `sm_rows`; each message
+- `firmware/src/jiant_mirror.c` (89 lines): the adapter. Each row goes back into RGB565 for `sm_rows`; each message
   goes into usb.c's SysEx queue only when it has room (never waiting on USB); a new viewer, or rows that had to be
-  dropped, get the whole screen again (at most twice a second). A draw never waits more than 0.4 s.
+  dropped, get the whole screen again (at most twice a second). A draw never waits more than 0.4 s. Every 100 ms it also puts
+  the sound playing together (JIANT's own `sound_name()`, as the header does) and hands it to `sm_name`.
 - `firmware/src/screen_mirror.c` / `.h`: the firmware-neutral screen mirror from
   [pfkellogg/fm1_open, `screen_mirror/`](https://github.com/pfkellogg/fm1_open/tree/screen-out/screen_mirror), with a
   6 KB buffer.
 
-Size: image 569,580 of 584,336 bytes; RAM 88,772 of 98,304 bytes.
+Size: image 569,872 of 584,336 bytes; RAM 88,836 of 98,304 bytes.
 
 ## Building it
 
