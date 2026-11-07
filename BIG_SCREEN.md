@@ -13,7 +13,7 @@ pages, the PRESETS list, with FM-1 Mirror on a Mac.
 
 **Watch it:** [JIANT FM on a Big Screen: A Second Community Firmware with FM-1 Mirror](https://youtu.be/7o5s0EDJX5c) (4:57): every install step, slowly, and the presets on the big screen.
 
-A fourth, not released yet: **SLOOP + FM-1 Big Screen**, tested on a real FM-1 (2026-11-04). Watch it: [SLOOP on a Big Screen](https://youtu.be/Pd4Bm6JvtkU).
+A fourth, source only so far: **[SLOOP + FM-1 Big Screen](https://github.com/pfkellogg/sloop-fm1/blob/big-screen/BIG_SCREEN.md)**, tested on a real FM-1 (2026-11-04). Watch it: [SLOOP on a Big Screen](https://youtu.be/Pd4Bm6JvtkU).
 
 A third community firmware with the same addition: **[Skiff + FM-1 Big Screen](https://github.com/pfkellogg/skiff/blob/big-screen/BIG_SCREEN.md)**;
 all three come from Felucca ([the family tree](https://github.com/pfkellogg/skiff/blob/big-screen/FIRMWARE_FAMILY.md), [video](https://youtu.be/lmMT-FtAoSE)).
