@@ -15,6 +15,8 @@ pages, the PRESETS list, with FM-1 Mirror on a Mac.
 
 A fourth: **[SLOOP + FM-1 Big Screen](https://github.com/pfkellogg/sloop-fm1/blob/big-screen/BIG_SCREEN.md)**, tested on a real FM-1 (2026-11-07). Watch it: [SLOOP on a Big Screen](https://youtu.be/Pd4Bm6JvtkU).
 
+A fifth: **[Melodee + FM-1 Big Screen](https://github.com/pfkellogg/melodee/blob/big-screen/BIG_SCREEN.md)**, tested on a real FM-1 (2026-11-07).
+
 A third community firmware with the same addition: **[Skiff + FM-1 Big Screen](https://github.com/pfkellogg/skiff/blob/big-screen/BIG_SCREEN.md)**;
 all three come from Felucca ([the family tree](https://github.com/pfkellogg/skiff/blob/big-screen/FIRMWARE_FAMILY.md), [video](https://youtu.be/lmMT-FtAoSE)).
 
