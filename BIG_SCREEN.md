@@ -59,8 +59,9 @@ the screen appears, big, in colour or high-contrast looks.
 engine and its sound, as JIANT's header shows it (`T1 FM6 ICE BELL`). FM-1 Mirror shows it in gold on top of its
 spyglass and follows the PRESETS knob and track changes. (It's sent only while an app asks, like the screen.)
 
-**USB only.** JIANT doesn't use the FM-1's Bluetooth MIDI, so **FM-1 Mirror Bluetooth** can't show it. Bluetooth
-needs firmware with Bluetooth MIDI: the FM-1 Big Screen firmware (M-VAVE's Open firmware + the screen) has it.
+**USB only.** JIANT has Bluetooth MIDI (V10.13 and later: MENU › SYSTEM › BT ON, with the **JIANT FM-1** app), but this
+build sends its screen over USB only, so **FM-1 Mirror Bluetooth** can't show it. For the screen over Bluetooth, use the
+FM-1 Big Screen firmware (M-VAVE's Open firmware + the screen).
 
 ## What changed in the code
 
