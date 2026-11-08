@@ -29,6 +29,11 @@ JIANT and released here again (the release names say which JIANT is inside).
 You can always go back to the newest JIANT: its [web installer](https://juanjiant-bit.github.io/JIANT/webapp/installer/)
 installs it over this one as an ordinary JIANT update (your projects stay). That JIANT has no big screen.
 
+> **Newer FM-1s (sold from late 2026, flash chip `0xB36014`): this build doesn't know their chip yet.** It doesn't damage
+> anything, but on a newer FM-1 it keeps your work in memory only (gone when you switch off), and installing another
+> firmware from it may fail. juanjiant is fixing it in JIANT's newest test builds (this build is V10.49), and this build will follow. Check which chip yours has with
+> [M-Flasher](https://github.com/jvitkauskas/m-flasher); on a newer FM-1, use the author's own build, or SLOOP or Melodee + Big Screen, for now. (2026-11-08)
+
 ## Installing it
 
 1. **If the FM-1 runs another custom firmware** (ChoralRoot, Felucca, Skiff, M-VAVE's Open firmware, Big Screen): put
